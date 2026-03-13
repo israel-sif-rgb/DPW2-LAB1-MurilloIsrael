@@ -1,1 +1,92 @@
 /* Estilos personalizados para el Laboratorio DPW2 */
+
+/* Variables por defecto (Mobile First) */
+:root {
+    --primary-color: #0d6efd;
+    --heading-font-size: 1.5rem;
+    --navbar-bg: #212529;
+}
+
+body {
+    font-size: 14px;
+    background-color: #f8f9fa;
+}
+
+.custom-heading {
+    font-size: var(--heading-font-size);
+    color: var(--primary-color);
+}
+
+.custom-navbar {
+    background-color: var(--navbar-bg) !important;
+}
+
+/* Sidebar Styling - Asegurando que tenga altura completa cuando es visible */
+.custom-sidebar {
+    min-height: calc(100vh - 56px); /* Altura total menos la navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    padding-right: 0;
+}
+
+.custom-sidebar .nav-pills .nav-link {
+    border-radius: 0;
+    color: #333;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-left: 4px solid transparent;
+}
+
+.custom-sidebar .nav-pills .nav-link:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.custom-sidebar .nav-pills .nav-link.active {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Punto de ruptura 1: Dispositivos medianos (Tablets) */
+@media (min-width: 768px) {
+    :root {
+        --primary-color: #0c63e4;
+        --heading-font-size: 1.75rem;
+        --navbar-bg: #1a1e21;
+    }
+    
+    body {
+        font-size: 15px;
+    }
+    
+    .custom-sidebar {
+        /* El sidebar ya se muestra gracias a d-md-block de Bootstrap en el HTML */
+        /* d-none d-md-block oculta en <768px y muestra en >=768px */
+        background-color: #f1f3f5 !important;
+    }
+}
+
+/* Punto de ruptura 2: Dispositivos grandes (Desktops) */
+@media (min-width: 992px) {
+    :root {
+        --primary-color: #0b5ed7;
+        --heading-font-size: 2rem;
+        --navbar-bg: #15181a;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Punto de ruptura 3: Dispositivos extra grandes (Pantallas grandes) */
+@media (min-width: 1200px) {
+    :root {
+        --primary-color: #0a58ca;
+        --heading-font-size: 2.25rem;
+        --navbar-bg: #000000;
+    }
+    
+    body {
+        font-size: 18px;
+    }
+}

@@ -16,6 +16,11 @@
     <!-- 3. Componentes: Navbar con menú desplegable -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
         <div class="container-fluid">
+            <!-- Toggler para Sidebar en móviles -->
+            <button class="navbar-toggler d-md-none me-2 border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <a class="navbar-brand" href="#">AdminPanel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDash"
                 aria-controls="navbarDash" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,36 +52,54 @@
 
     <!-- 1. Sistema de Rejillas (Grid System): Dashboard Administrativo -->
     <div class="container-fluid">
-        <div class="row layout-wrapper">
+        <div class="row">
 
-            <!-- Sidebar (Barra Lateral) -->
-            <!-- 2. Asegurar que el Sidebar se oculte en móviles (combinación de clase Bootstrap y CSS) -->
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar custom-sidebar">
-                <div class="position-sticky pt-3 mt-4">
-                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <button class="nav-link active text-start" id="v-pills-1-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-1" type="button" role="tab" aria-controls="v-pills-1"
-                            aria-selected="true">
-                            1
-                        </button>
-                        <button class="nav-link text-start" id="v-pills-2-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-2" type="button" role="tab" aria-controls="v-pills-2"
-                            aria-selected="false">
-                            2
-                        </button>
-                        <button class="nav-link text-start" id="v-pills-3-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3"
-                            aria-selected="false">
-                            3
-                        </button>
-                        <button class="nav-link text-start" id="v-pills-4-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-4" type="button" role="tab" aria-controls="v-pills-4"
-                            aria-selected="false">
-                            4
-                        </button>
-                    </div>
+            <!-- Sidebar (Barra Lateral como Offcanvas en móviles) -->
+            <div class="offcanvas-md offcanvas-start bg-light border-end col-md-3 col-lg-2 p-0 shadow-sm" tabindex="-1"
+                id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                <div class="offcanvas-header d-md-none border-bottom px-3">
+                    <h5 class="offcanvas-title" id="sidebarMenuLabel">Menú</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
+                        aria-label="Close"></button>
                 </div>
-            </nav>
+                <div class="offcanvas-body d-md-flex flex-column p-0 pt-md-3">
+                    <ul class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                        <li class="nav-item">
+                            <button class="nav-link active text-start rounded-0 py-3 px-4" id="v-pills-1-tab"
+                                data-bs-toggle="pill" data-bs-target="#v-pills-1" type="button" role="tab"
+                                aria-controls="v-pills-1" aria-selected="true" data-bs-dismiss="offcanvas"
+                                data-bs-target="#sidebarMenu">
+                                <span class="fw-bold">1</span>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link text-start rounded-0 py-3 px-4" id="v-pills-2-tab"
+                                data-bs-toggle="pill" data-bs-target="#v-pills-2" type="button" role="tab"
+                                aria-controls="v-pills-2" aria-selected="false" data-bs-dismiss="offcanvas"
+                                data-bs-target="#sidebarMenu">
+                                <span class="fw-bold">2</span>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link text-start rounded-0 py-3 px-4" id="v-pills-3-tab"
+                                data-bs-toggle="pill" data-bs-target="#v-pills-3" type="button" role="tab"
+                                aria-controls="v-pills-3" aria-selected="false" data-bs-dismiss="offcanvas"
+                                data-bs-target="#sidebarMenu">
+                                <span class="fw-bold">3</span>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link text-start rounded-0 py-3 px-4" id="v-pills-4-tab"
+                                data-bs-toggle="pill" data-bs-target="#v-pills-4" type="button" role="tab"
+                                aria-controls="v-pills-4" aria-selected="false" data-bs-dismiss="offcanvas"
+                                data-bs-target="#sidebarMenu">
+                                <span class="fw-bold">4</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
             <!-- Área de Contenido Principal -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
